@@ -11,8 +11,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 // Import Actions
-import { toggleAddPost } from './AppActions';
-import { switchLanguage } from '../../modules/Intl/IntlActions';
+import { toggleAddPost, toggleSearchPage } from './AppActions';
+import { switchLanguage } from '#/Intl/IntlActions';
 
 export class App extends Component {
   constructor(props) {
@@ -26,6 +26,10 @@ export class App extends Component {
 
   toggleAddPostSection = () => {
     this.props.dispatch(toggleAddPost());
+  };
+
+  toggleSearchPage = () => {
+    this.props.dispatch(toggleSearchPage());
   };
 
   render() {
@@ -47,11 +51,15 @@ export class App extends Component {
                 content: 'width=device-width, initial-scale=1',
               },
             ]}
+            link={[
+              {"rel": "stylesheet", "href": "https://fonts.googleapis.com/icon?family=Material+Icons"}
+            ]}
           />
           <Header
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
             toggleAddPost={this.toggleAddPostSection}
+            toggleSearchPage={this.toggleSearchPage}
           />
           <div className={styles.container}>
             {this.props.children}

@@ -15,8 +15,9 @@
 
 .site-title {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 38px;
   float: left;
+  margin-top: 0px;
 }
 
 .site-title a {
